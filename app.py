@@ -9,8 +9,10 @@ from docx import Document
 import fitz  # PyMuPDF
 import os
 
-nltk.download('stopwords')
-nltk.download('punkt')
+nltk.data.path.append('nltk_data')
+
+# nltk.download('stopwords')
+# nltk.download('punkt')
 
 # Get directory of this script
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
