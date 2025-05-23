@@ -49,7 +49,7 @@ def extract_text_from_pdf(file):
 
 # Main app
 def main():
-    st.title("Resume Screening App")
+    st.title("Resume Screening")
     uploaded_file = st.file_uploader("Upload your resume", type=["pdf", "docx", "txt"])
 
     if uploaded_file is not None:
