@@ -2,5 +2,4 @@ streamlit
 numpy
 nltk
 python-docx
-PyMuPDF
-os
+PyMuPDF==1.26.0  
