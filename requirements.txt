@@ -2,4 +2,5 @@ streamlit
 numpy
 nltk
 python-docx
-PyMuPDF==1.26.0  
+PyMuPDF==1.26.0
+scikit-learn
