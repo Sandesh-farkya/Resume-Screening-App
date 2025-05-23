@@ -7,14 +7,20 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from docx import Document
 import fitz  # PyMuPDF
+import os
 
 nltk.download('stopwords')
 nltk.download('punkt')
 
+# Get directory of this script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Load model and vectorizer
-knn_model = pickle.load(open(r"C:\Users\Sandesh\Desktop\python\resumefolder\knn_model.pkl", 'rb'))
-tfidf_vectorizer = pickle.load(open(r"C:\Users\Sandesh\Desktop\python\resumefolder\tfidf_vectorizer.pkl", 'rb'))
+# Load model and vectorizer using relative paths
+knn_model_path = os.path.join(BASE_DIR, 'knn_model.pkl')
+tfidf_vectorizer_path = os.path.join(BASE_DIR, 'tfidf_vectorizer.pkl')
+
+knn_model = pickle.load(open(knn_model_path, 'rb'))
+tfidf_vectorizer = pickle.load(open(tfidf_vectorizer_path, 'rb'))
 
 # Label mapping list
 label_names = ['Advocate', 'Arts', 'Automation Testing', 'Blockchain', 'Business Analyst',
@@ -22,8 +28,6 @@ label_names = ['Advocate', 'Arts', 'Automation Testing', 'Blockchain', 'Business
                'ETL Developer', 'Electrical Engineering', 'HR', 'Hadoop', 'Health and fitness',
                'Java Developer', 'Mechanical Engineer', 'Network Security Engineer', 'Operations Manager',
                'PMO', 'Python Developer', 'SAP Developer', 'Sales', 'Testing', 'Web Designing']
-
-
 
 # Text cleaning function
 def clean_text(text):
@@ -70,7 +74,6 @@ def main():
             prediction_id = knn_model.predict(input_feature)[0]
             predicted_label = label_names[prediction_id]
             st.success(f"Your resume is classified as: {predicted_label}")
-
 
         except Exception as e:
             st.error(f"Error processing file: {e}")
