@@ -13,8 +13,8 @@ nltk.download('punkt')
 
 
 # Load model and vectorizer
-knn_model = pickle.load(open(r"C:\Users\Sandesh\Desktop\python\resumefolder\knn_model.pkl", 'rb'))
-tfidf_vectorizer = pickle.load(open(r"C:\Users\Sandesh\Desktop\python\resumefolder\tfidf_vectorizer.pkl", 'rb'))
+knn_model = pickle.load(open("knn_model.pkl", 'rb'))
+tfidf_vectorizer = pickle.load(open("tfidf_vectorizer.pkl", 'rb'))
 
 # Label mapping list
 label_names = ['Advocate', 'Arts', 'Automation Testing', 'Blockchain', 'Business Analyst',
