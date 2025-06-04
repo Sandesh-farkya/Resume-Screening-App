@@ -8,6 +8,10 @@ from nltk.tokenize import word_tokenize
 from docx import Document
 import fitz  # PyMuPDF
 
+nltk.download('punkt')
+nltk.download('stopwords')
+
+
 nltk.data.path.append("nltk_data")
 
 
