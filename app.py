@@ -8,7 +8,7 @@ from nltk.tokenize import word_tokenize
 from docx import Document
 import fitz  # PyMuPDF
 
-nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 
